@@ -22,14 +22,14 @@ class PDF(FPDF):
     def chapter_title(self, title):
         self.set_font('Helvetica', 'B', 14)
         self.set_text_color(41, 128, 185)
-        self.cell(0, 10, title, ln=True)
-        self.ln(2)
+        self.cell(0, 10, title)
+        self.ln(12)
 
     def section_title(self, title):
         self.set_font('Helvetica', 'B', 11)
         self.set_text_color(52, 73, 94)
-        self.cell(0, 8, title, ln=True)
-        self.ln(1)
+        self.cell(0, 8, title)
+        self.ln(9)
 
     def body_text(self, text):
         self.set_font('Helvetica', '', 10)
@@ -49,16 +49,19 @@ class PDF(FPDF):
     def add_chart(self, filename, w=160):
         """Add a chart with absolute path resolution"""
         image_path = os.path.join(output_dir, filename)
+        print(f"  Checking: {image_path}")
         if os.path.exists(image_path):
+            print(f"  [OK] Found: {filename}")
             x = (210 - w) / 2
             self.image(image_path, x=x, w=w)
             self.ln(5)
         else:
+            print(f"  X MISSING: {filename}")
             self.set_font('Helvetica', 'I', 9)
             self.set_text_color(255, 0, 0)
-            self.cell(0, 6, f'[Chart not found: {filename}]', ln=True)
+            self.cell(0, 6, f'[Chart not found: {filename}]')
+            self.ln(6)
             self.set_text_color(51, 51, 51)
-            self.ln(5)
 
 # Create PDF
 pdf = PDF()
