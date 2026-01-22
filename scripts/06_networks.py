@@ -5,8 +5,8 @@ import os
 import numpy as np
 
 # Settings
-input_dir = "cleaned"
-output_dir = "analysis_output"
+input_dir = "data/cleaned"
+output_dir = "output/images"
 os.makedirs(output_dir, exist_ok=True)
 sns.set_theme(style="whitegrid")
 

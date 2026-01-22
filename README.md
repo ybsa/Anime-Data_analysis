@@ -1,6 +1,9 @@
-# 🎌 Anime Data Analysis
+# 🎌 A Comprehensive Data-Driven Analysis of the Anime Industry (1980–2024)
 
-A comprehensive data analysis project exploring **9,999 anime** titles across multiple dimensions using Python, Pandas, Matplotlib, Seaborn, and Machine Learning.
+**Author:** Samir Rana  
+**Type:** Portfolio Research Paper (IEEE-style)
+
+A comprehensive data analysis project exploring **9,999 anime** titles using Python, Pandas, Matplotlib, Seaborn, and Machine Learning.
 
 ![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)
 ![Pandas](https://img.shields.io/badge/Pandas-2.0+-green.svg)
@@ -8,7 +11,7 @@ A comprehensive data analysis project exploring **9,999 anime** titles across mu
 
 ## 📊 Project Overview
 
-This project performs a 4-phase comprehensive analysis of anime data:
+This project performs a 4-phase comprehensive analysis of anime data from MyAnimeList:
 
 | Phase | Focus | Visualizations |
 |-------|-------|----------------|
@@ -19,34 +22,45 @@ This project performs a 4-phase comprehensive analysis of anime data:
 
 ## 🔑 Key Findings
 
-- **No Score Inflation**: Average scores stable at ~7.0 for decades
+- **No Score Inflation**: Average scores stable at ~7.0 for 30+ years
+- **5x Production Growth**: Annual releases surpassed 1,000 by 2020, yet quality maintained
 - **Popularity = Quality**: Strong correlation between member count and ratings
-- **Winter Dominates**: Most anime release in Winter season
 - **Talent Matters**: Top directors and voice actors linked to highest-rated content
-- **Scores Unpredictable**: ML model achieved R²=0.02 - creativity defies algorithms!
+- **ML Fails to Predict**: R²=0.02 - creativity defies algorithmic prediction!
 
 ## 📁 Project Structure
 
 ```
 Anime-Data-Analysis/
+├── data/
+│   ├── raw/                    # Original CSV data files
+│   │   ├── anime.csv
+│   │   ├── anime_characters.csv
+│   │   ├── anime_companies.csv
+│   │   ├── anime_genres.csv
+│   │   ├── anime_staff.csv
+│   │   ├── anime_voice_actors.csv
+│   │   ├── entities.csv
+│   │   └── dataset-metadata.json
+│   └── cleaned/                # Cleaned CSV data files
+├── output/
+│   ├── images/                 # Generated visualizations (26 PNGs)
+│   └── reports/                # PDF and markdown reports
+│       ├── IEEE_Anime_Research_Report.pdf
+│       └── IEEE_Research_Report.md
 ├── scripts/                    # Analysis Python scripts
-│   ├── 01_load_inspect.py     # Data loading & inspection
-│   ├── 02_clean.py            # Data cleaning
-│   ├── 03_analyze.py          # Core analysis (Phases 1-3)
-│   ├── 04_seasonal.py         # Seasonal analysis
-│   ├── 05_characters.py       # Character analysis
-│   ├── 06_networks.py         # Collaboration networks
-│   ├── 07_temporal.py         # Temporal deep dives
-│   ├── 08_ml_model.py         # Predictive modeling
-│   ├── 09_comparative.py      # Comparative analysis
-│   └── generate_pdf.py        # PDF report generator
-├── dashboard/                  # Interactive Dash app
-│   └── app.py
-├── analysis_output/            # Generated visualizations & reports
-├── cleaned/                    # Cleaned CSV data files
-├── *.csv                       # Raw data files
-├── Anime_Analysis_Report.pdf   # Comprehensive 29-page report
-├── requirements.txt            # Python dependencies
+│   ├── 01_load_inspect.py
+│   ├── 02_clean.py
+│   ├── 03_analyze.py
+│   ├── 04_seasonal.py
+│   ├── 05_characters.py
+│   ├── 06_networks.py
+│   ├── 07_temporal.py
+│   ├── 08_ml_model.py
+│   ├── 09_comparative.py
+│   └── generate_ieee_pdf.py    # IEEE-style PDF report generator
+├── requirements.txt
+├── LICENSE
 └── README.md
 ```
 
@@ -65,7 +79,7 @@ pip install -r requirements.txt
 
 ### 3. Run Analysis Scripts
 ```bash
-# Run all Phase 1-3 analysis
+# Run core analysis (generates visualizations)
 python scripts/03_analyze.py
 
 # Run Phase 4 analyses
@@ -75,16 +89,12 @@ python scripts/06_networks.py
 python scripts/07_temporal.py
 python scripts/08_ml_model.py
 python scripts/09_comparative.py
-
-# Generate PDF report
-python scripts/generate_pdf.py
 ```
 
-### 4. Launch Interactive Dashboard
+### 4. Generate IEEE-Style PDF Report
 ```bash
-cd dashboard
-python app.py
-# Open http://localhost:8050 in browser
+python scripts/generate_ieee_pdf.py
+# Output: output/reports/IEEE_Anime_Research_Report.pdf
 ```
 
 ## 📈 Visualizations
@@ -113,33 +123,26 @@ python app.py
 - ML feature importance
 - Prediction accuracy scatter plot
 - Studio quality vs volume comparison
-- Single vs multi-genre performance
 - Format popularity trends
 
 ## 🛠️ Technologies Used
 
 - **Data Processing**: Pandas, NumPy
-- **Visualization**: Matplotlib, Seaborn, Plotly
+- **Visualization**: Matplotlib, Seaborn
 - **Machine Learning**: scikit-learn (Random Forest)
-- **Dashboard**: Dash by Plotly
 - **PDF Generation**: FPDF2
 
 ## 📄 Data Source
 
-The dataset is sourced from MyAnimeList and includes:
-- `anime.csv` - Main anime information
-- `anime_genres.csv` - Genre/tag mappings
-- `anime_companies.csv` - Studio/producer relationships
-- `anime_staff.csv` - Staff (directors, etc.)
-- `anime_voice_actors.csv` - Voice actor roles
-- `anime_characters.csv` - Character information
-- `entities.csv` - Entity names lookup
+Dataset sourced from [MyAnimeList](https://myanimelist.net) containing:
+- 9,999 anime titles
+- 39,871 unique characters
+- Staff, studio, and voice actor relationships
 
 ## 📝 Reports
 
-- **PDF Report**: `Anime_Analysis_Report.pdf` (29 pages, all charts + descriptions)
-- **Markdown Summary**: `analysis_output/Anime_Analysis_Report.md`
-- **Phase 4 Summary**: `analysis_output/Phase4_Summary.md`
+- **IEEE-Style PDF Report**: `output/reports/IEEE_Anime_Research_Report.pdf` (16 pages)
+- **Markdown Report**: `output/reports/IEEE_Research_Report.md`
 
 ## 🤝 Contributing
 
